@@ -1,0 +1,22 @@
+﻿  FileRead.cpp
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(10): error C2653: “FileRead”: 不是类或命名空间名称
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(14): warning C4551: 缺少参数列表的函数调用
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(15): error C2065: “cout”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(20): error C2065: “buf”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(21): error C2065: “p”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(21): error C2065: “buf”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(28): error C2065: “str1”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(29): error C2065: “AcuPosX”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(29): error C2065: “str1”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(29): error C3861: “atof”: 找不到标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(30): error C2065: “str2”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(31): error C2065: “AcuPosY”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(31): error C2065: “str1”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(31): error C3861: “atof”: 找不到标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(32): error C2065: “str3”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(33): error C2065: “AcuPosZ”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(33): error C2065: “str1”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(33): error C3861: “atof”: 找不到标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(39): error C3861: “system”: 找不到标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(41): error C2065: “cout”: 未声明的标识符
+e:\vsproj\dlib02\ar-acupuncture\dlib02\fileread.cpp(41): error C2065: “AcuPosX”: 未声明的标识符
