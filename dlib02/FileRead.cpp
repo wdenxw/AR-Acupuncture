@@ -36,7 +36,7 @@ void FileRead::ReadAcuPos()
 			i++;
 		}
 	}
-	printf("a");
+
 
 	system("pause");
 	fclose(f);
