@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+dlib02/x64/Release/dlib02.tlog/CL.command.1.tlog
+dlib02/x64/Release/dlib02.tlog/CL.read.1.tlog
+dlib02/x64/Release/dlib02.tlog/dlib02.lastbuildstate
+dlib02/x64/Release/dlib02.tlog/CL.write.1.tlog
+dlib02/x64/Release/dlib02.tlog/dlib02.write.1u.tlog
+dlib02/x64/Release/dlib02.tlog/link.command.1.tlog
+dlib02/x64/Release/dlib02.tlog/link.read.1.tlog
+dlib02/x64/Release/dlib02.tlog/link.write.1.tlog
