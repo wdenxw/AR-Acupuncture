@@ -7,18 +7,29 @@
 #include <dlib/image_processing.h>
 #include <opencv2/opencv.hpp> 
 #include <dlib/gui_widgets.h>
+#include "FileRead.h"
+#include "math.h"
+
 
 using namespace dlib;
 using namespace std;
 
+float a[4] = { 0,1,2 };
+
+
 
 void MarkFace::MarkPoints()
 {
+
+
 	try
 	{
 		cv::VideoCapture cap(0);
 		image_window win;
-		//cap.set(CV_CAP_PROP_FRAME_WIDTH, 640);  
+		win.set_title("perspective_window 3D point cloud");
+
+//		cv::namedWindow("image", 1);
+		//cap.set(CV_CAP_PROP_FRAME_WIDTH, 640);  //设置分辨率的相关函数，移植到手机端后可以调用
 		//cap.set(CV_CAP_PROP_FRAME_HEIGHT, 480);  
 		// Load face detection and pose estimation models.  
 		frontal_face_detector detector = get_frontal_face_detector();
@@ -32,12 +43,13 @@ void MarkFace::MarkPoints()
 		{
 			// Grab a frame  
 			cv::Mat img, img_small;
+			img.copyTo(img_small);//
 			cap >> img;
 			cv::resize(img, img_small, cv::Size(), 1.0 / RATIO, 1.0 / RATIO);
 
 			cv_image<bgr_pixel> cimg(img);
 			cv_image<bgr_pixel> cimg_small(img_small);
-
+	//		cv::setMouseCallback("perspective_window 3D point cloud", onMouseHandle, (void*)&img);//鼠标操作回调函数  
 			// Detect faces   
 			if (count++ % SKIP_FRAMES == 0) {
 				faces = detector(cimg_small);
@@ -205,8 +217,96 @@ void MarkFace::MarkPoints()
 	{
 		cout << e.what() << endl;
 	}
+	//cout << FeaPosY[22];
+
 	system("pause");
 
-
-
 }
+
+void MarkFace::translation(float *Xpoint,float *Ypoint,float *Zpoint, float translateX, float translateY, float translateZ )
+{
+	for (int i = 0;i < MAXACUNUM-1;i++)
+	{
+		*Xpoint += translateX;
+		*Ypoint += translateY;
+		*Zpoint += translateZ;
+		Xpoint++;
+		Ypoint++;
+		Zpoint++;
+
+	}
+}
+void scaling(float *Xpoint, float *Ypoint, float *Zpoint, float scaleX, float scaleY, float scaleZ)
+{
+	for (int i = 0;i < MAXACUNUM - 1;i++)
+	{
+		*Xpoint *= scaleX;
+		*Ypoint *= scaleY;
+		*Zpoint *= scaleZ;
+		Xpoint++;
+		Ypoint++;
+		Zpoint++;
+
+	}
+}
+void rotation(float *Xpoint, float *Ypoint, float *Zpoint, float Xangle, float Yangle, float Zangle)
+{
+//	绕X轴的旋转 ;
+	*Ypoint = cos(Xangle)*(*Ypoint) - sin(Xangle)* (*Zpoint);
+	*Zpoint = sin(Xangle)*(*Ypoint) + cos(Xangle)* (*Zpoint);
+
+	//	绕Y轴的旋转 ;
+	*Xpoint = cos(Yangle)*(*Xpoint) + sin(Yangle)* (*Zpoint);
+	*Zpoint = -sin(Yangle)*(*Xpoint) + cos(Yangle)* (*Zpoint);
+
+	//	绕Z轴的旋转 ;
+	*Xpoint = cos(Zangle)*(*Xpoint) - sin(Zangle)* (*Ypoint);
+	*Ypoint = sin(Zangle)*(*Xpoint) + cos(Zangle)* (*Ypoint);
+	Xpoint++;
+	Ypoint++;
+	Zpoint++;
+}
+
+
+
+//	//void MarkFace:: *MouseHandle(int event, int x, int y, int flags, void *param)
+//	//{
+//	//	cv::Mat& image = *(cv::Mat*) param;
+//	//	switch (event)
+//	//	{
+//	//	case cv::EVENT_LBUTTONDOWN://点击鼠标左键  
+//	//	{
+//	//		circle(image, cvPoint(x, y), 3, cv::Scalar(0, 0, 255), -1);
+//	//	}
+//	//	break;
+//	//	//case EVENT_LBUTTONUP://鼠标左键抬起  
+//	//	//{
+//
+//	//	//}
+//	//	//break;
+//
+//	//	}
+////}
+//
+//void onMouseHandle(int event, int x, int y, int flags, void* userdata)
+//{
+//
+//	cv::Mat &image = *(cv::Mat *)userdata;
+//	switch (event)
+//	{
+//		//鼠标移动消息  
+//	case cv::EVENT_MOUSEMOVE:
+//	{
+//		printf("a");
+//	}
+//	break;
+//	case cv::EVENT_LBUTTONDOWN:
+//		printf("b");
+//		break;
+//		//左键抬起消息  
+//	case cv::EVENT_LBUTTONUP:
+//		printf("c");
+//		break;
+//	}
+
+//}

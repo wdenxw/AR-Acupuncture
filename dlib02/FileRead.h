@@ -15,15 +15,24 @@ private:
 	char buf[256];
 	char st[80];
 	char *p;
+	char str0[1000];
 	char str1[1000];
 	char str2[1000];
 	char str3[1000];
-	float AcuPosX[MAXACUNUM];
-	float AcuPosY[MAXACUNUM];
-	float AcuPosZ[MAXACUNUM];
 
+	char str4[1000];
+	char str5[1000];
+	char str6[1000];
+	char str7[1000];
 
 };
 
 
 #endif
+extern float AcuPosX[MAXACUNUM];
+extern float AcuPosY[MAXACUNUM];
+extern float AcuPosZ[MAXACUNUM];
+
+extern float FeaPosX[MAXACUNUM];
+extern float FeaPosY[MAXACUNUM];
+extern float FeaPosZ[MAXACUNUM];

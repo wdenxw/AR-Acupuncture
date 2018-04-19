@@ -9,6 +9,11 @@ class MarkFace
 public:
 
 	void MarkPoints();
+	void translation(float *Xpoint, float *Ypoint, float *Zpoint, float translateX, float translateY, float translateZ);
+	void scaling(float *Xpoint, float *Ypoint, float *Zpoint, float scaleX, float scaleY, float scaleZ);
+	void rotation(float *Xpoint, float *Ypoint, float *Zpoint, float Xangle, float Yangle, float Zangle);
+
+	friend void onMouseHandle(int event, int x, int y, int flags, void* userdata);
 
 
 private:
